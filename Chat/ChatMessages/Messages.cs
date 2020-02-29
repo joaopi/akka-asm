@@ -62,9 +62,9 @@ namespace ChatMessages
         public string Text { get; private set; }
     }
 
-    public class SayResponse
+    public class ChatMessage
     {
-        public SayResponse(string username, string text)
+        public ChatMessage(string username, string text)
         {
             Username = username ?? throw new ArgumentNullException(nameof(username));
             Text = text ?? throw new ArgumentNullException(nameof(text));

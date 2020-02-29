@@ -39,7 +39,7 @@ namespace ChatActors
 
             Receive<SayRequest>(sr => _server.Tell(sr));
 
-            Receive<SayResponse>(srsp =>
+            Receive<ChatMessage>(srsp =>
                 Console.WriteLine("{0}: {1}", srsp.Username, srsp.Text));
         }
 

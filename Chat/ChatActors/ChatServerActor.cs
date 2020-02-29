@@ -14,9 +14,12 @@ namespace ChatActors
             Receive<SayRequest>(message =>
             {
                 var nick = _clients[Sender];
-                var response = new SayResponse(nick, message.Text);
+                var response = new ChatMessage(nick, message.Text);
 
-                foreach (var client in _clients) client.Key.Tell(response, Self);
+                foreach (var client in _clients.Keys)
+                {
+                    client.Tell(response, Self);
+                }
             });
 
             Receive<ConnectRequest>(message =>
